@@ -1,0 +1,77 @@
+<p-blockUI [blocked]="blockedPanel">
+  <p-progressBar mode="indeterminate" [style]="{'height': '6px'}"></p-progressBar>
+</p-blockUI>
+
+<div class="ibox float-e-margins">
+
+  <div class="ibox-title">
+    <h5>{{title}}</h5>
+  </div>
+
+  <div class="ibox-content">
+
+      
+    <form class="form-horizontal" [formGroup]="form">
+
+      <div class="form-group">
+        <div class="col-sm-3">
+          <input type="text" class="form-control" [attr.disabled]="true" placeholder="Código Interno" formControlName="id" />
+        </div>
+        <div class="col-sm-3">
+          <input type="text" class="form-control" placeholder="Código" formControlName="codigo" />
+        </div>
+        <div class="col-sm-3">
+          <input type="number" class="form-control" placeholder="EAN" formControlName="ean" />
+        </div>
+        <div class="col-sm-3">
+          <input type="number" class="form-control" placeholder="NCM" formControlName="ncm" />
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="col-sm-6">
+          <input type="text" class="form-control" placeholder="Descrição" formControlName="descricao" />
+        </div>
+        <div class="col-sm-3 has-warning">
+          <select class="form-control" placeholder="Cor">
+            <option>Cor</option>
+            <option>Única</option>
+            <option>Amerelo</option>
+            <option>Azul</option>
+            <option>Vermelho</option>
+            <option>Verde</option>
+          </select>
+        </div>
+        <div class="col-sm-3 has-warning">
+          <select class="form-control" placeholder="Tamanho">
+            <option>Tamanho</option>
+            <option>Único</option>
+            <option>P</option>
+            <option>M</option>
+            <option>G</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="col-sm-3">
+          <input class="form-control" placeholder="Custo" currencyMask formControlName="custo" />
+        </div>
+        <div class="col-sm-3 has-warning">
+          <input class="form-control" placeholder="Venda" currencyMask formControlName="venda" />
+        </div>
+      </div>
+
+    </form>
+  </div>
+
+  <div class="ibox-content">
+    &nbsp;
+    <button class="btn-primary btn btn-sm pull-right" style="margin-left: 5px;" [disabled]="!form.valid"><i class="fa fa-save"></i>&nbsp;Salvar</button>
+    <button class="btn-warning btn btn-sm pull-right" (click)="voltar();"><i class="fa fa-arrow-left"></i>&nbsp;Voltar</button>
+  </div>
+
+  <span class="loading rhomb"></span>
+  <span class="loading bullet"></span>
+
+</div>

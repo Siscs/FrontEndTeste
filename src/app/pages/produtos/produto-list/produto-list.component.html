@@ -1,0 +1,104 @@
+<p-blockUI [blocked]="blockedPanel">
+  <p-progressBar mode="indeterminate" [style]="{'height': '6px'}"></p-progressBar>
+</p-blockUI>
+
+<div class="row">
+  <div class="col-lg-12">
+    <div class="ibox float-e-margins">
+
+      <div class="ibox-title">
+        <h5>{{title}}</h5>
+      </div>
+      <div class="ibox-content">
+
+        <p-table #dt [tableStyle]="{'table-layout':'auto'}" [scrollable]="false" [scrollable]="true" scrollHeight="500px"
+          styleClass=".ui-datatable-hor-scroll" [value]="produtos" [loading]="desabiltarBusca" [paginator]="produtos?.length > registroPagina"
+          [rows]="registroPagina">
+
+          <ng-template pTemplate="caption">
+            <div class="ui-helper-clearfix">
+              <button id="idbtn" class="btn-success btn btn-sm pull-left" [routerLink]="['/produto/']"><i class="fa fa-file-o"></i>&nbsp;Novo</button>
+
+              <p-fileUpload class="pull-right" #uploadXML mode="basic" name="demo[]" customUpload="true" cancelLabel="Cancelar"
+                chooseLabel="Importar& XML" (uploadHandler)="importarProdutoXML($event.files)" accept="image/*" maxFileSize="1000000"
+                (onUpload)="importarProdutoXML($event.name)" auto="true" chooseLabel="Importar XML"></p-fileUpload>
+        
+              <button class="btn-info btn btn-sm pull-left" (click)="dt.exportCSV()"><i class="fa fa-download"></i>&nbsp;Exportar&nbsp;CSV</button>
+
+            </div>
+          </ng-template>
+
+          <ng-template pTemplate="header">
+            <tr>
+              <th pSortableColumn="id">ID
+                <p-sortIcon field="id" ariaLabel="Ordenação" ariaLabelDesc="Ordenação descendente" ariaLabelAsc="Ordenação ascendente">
+                </p-sortIcon>
+              </th>
+
+              <th pSortableColumn="codigo">Código
+                <p-sortIcon field="codigo" ariaLabel="Ordenação" ariaLabelDesc="Ordenação descendente" ariaLabelAsc="Ordenação ascendente">
+                </p-sortIcon>
+              </th>
+
+              <th pSortableColumn="descricao">Descrição
+                <p-sortIcon field="descricao" ariaLabel="Ordenação" ariaLabelDesc="Ordenação descendente" ariaLabelAsc="Ordenação ascendente">
+                </p-sortIcon>
+              </th>
+
+              <th pSortableColumn="custo" style="text-align: right;">Custo
+                <p-sortIcon field="custo" ariaLabel="Ordenação" ariaLabelDesc="Ordenação descendente" ariaLabelAsc="Ordenação ascendente">
+                </p-sortIcon>
+              </th>
+
+              <th pSortableColumn="venda" style="text-align: right;">Venda
+                <p-sortIcon field="venda" ariaLabel="Ordenação" ariaLabelDesc="Ordenação descendente" ariaLabelAsc="Ordenação ascendente">
+                </p-sortIcon>
+              </th>
+
+              <th></th>
+            </tr>
+
+          </ng-template>
+
+          <ng-template pTemplate="body" let-produto>
+            <tr>
+              <td>{{produto.id}}</td>
+              <td>{{produto.codigo}}</td>
+              <td>{{produto.descricao}}</td>
+              <td style="text-align: right;">{{produto.custo}}</td>
+              <td style="text-align: right;">{{produto.venda}}</td>
+              <td class="text-center">
+                <div>
+                  <button class="btn-warning  btn btn-sm" [routerLink]="['/produto/', produto.id]"><i class="fa fa-file-text-o"></i>&nbsp;Editar</button>&nbsp;
+                  <button class="btn-danger  btn btn-sm" (click)="confirmaExclusao.show()"><i class="fa fa-eraser"></i>&nbsp;Excluir</button>
+
+                  <swal #confirmaExclusao title="Deseja apagar o produto '{{produto.descricao}}'?" type="question"
+                    [options]="{ 
+                                  showCancelButton: true,  
+                                  cancelButtonText:'Não', 
+                                  confirmButtonText: 'Sim', 
+                                  cancelButtonColor: '#ec4758', 
+                                  confirmButtonColor: '#18a689',
+                                  width: 478
+                                }"
+                    (confirm)="excluir(produto)"></swal>
+                </div>
+              </td>
+            </tr>
+
+          </ng-template>
+
+          <!-- <ng-template pTemplate="footer">
+            <tr *ngIf="geralResult?.quantidade"> -
+              <td colspan="8" style="text-align: right">
+                Total de registro(s):
+              </td>
+            </tr>
+          </ng-template> -->
+
+        </p-table>
+
+      </div>
+    </div>
+  </div>
+</div>

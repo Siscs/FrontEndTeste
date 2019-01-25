@@ -1,0 +1,52 @@
+<nav class="navbar-default navbar-static-side" role="navigation">
+  <div class="sidebar-collapse">
+    <ul class="nav metismenu" id="side-menu">
+
+      <li class="nav-header">
+
+        <app-informacao-usuario></app-informacao-usuario>
+
+        <div class="logo-element">
+          SOLP
+        </div>
+      </li>
+
+      <li routerLinkActive="active">
+        <a [routerLink]="['/dashboard']"><i class="fa fa-bar-chart-o"></i>
+          <span class="nav-label">Dashboards</span>
+        </a>
+      </li>
+
+      <li>
+        <a [routerLink]="['/produtos']"><i class="fa fa-gift"></i>
+          <span class="nav-label">Produtos</span> 
+          <!-- <span class="fa arrow"></span> -->
+        </a>
+        <!-- <ul class="nav nav-second-level">
+          <li routerLinkActive="active"><a [routerLink]="['/cores']">Cor</a></li>
+          <li routerLinkActive="active"><a [routerLink]="['/tamanhos']">Tamanho</a></li>
+        </ul> -->
+      </li>
+
+      <li routerLinkActive="active">
+        <a [routerLink]="['/clientes']"><i class="fa fa-address-card-o"></i>
+          <span class="nav-label">Clientes</span>
+        </a>
+      </li>
+
+      <li routerLinkActive="active">
+        <a [routerLink]="['/importarnotafiscal']"><i class="fa fa fa-file-code-o"></i>
+          <span class="nav-label">Importar NF</span>
+        </a>
+      </li>
+
+      <li routerLinkActive="active">
+        <a [routerLink]="['/configuracoes']"><i class="fa fa-cogs"></i>
+          <span class="nav-label">Configurações</span>
+        </a>
+      </li>
+
+    </ul>
+
+  </div>
+</nav>

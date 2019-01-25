@@ -1,0 +1,59 @@
+<div class="ibox float-e-margins">
+
+  <div class="ibox-title">
+    <h5>{{title}}</h5>
+  </div>
+
+  <div class="ibox-content">
+
+    <form [formGroup]="form" class="form-horizontal">
+
+      <div class="form-group">
+
+        <div class="col-sm-4">
+          <input type="text" class="form-control" placeholder="Nome" formControlName="nome" />
+        </div>
+
+        <div class="col-sm-4">
+          <input type="text" class="form-control" placeholder="E-mail" formControlName="email" />
+        </div>
+
+      </div>
+
+
+
+      <div class="form-group">
+
+        <div class="col-sm-4">
+          <input type="text" class="form-control" placeholder="Login" formControlName="login" />
+        </div>
+        <div class="col-sm-2">
+          <input type="password" class="form-control" placeholder="Senha" formControlName="senha" />
+        </div>
+
+        <div class="col-sm-2">
+          <input type="password" class="form-control" placeholder="Confirmar Senha" formControlName="confirmarSenha" />
+        </div>
+      </div>
+
+      <!-- <div class="btn-group">
+        <label title="Alterar imagem" for="inputImage" class="btn btn-primary">
+          <input type="file" accept="image/*" name="file" id="inputImage" class="hide">
+          Alterar imagem
+        </label>
+      </div> -->
+
+
+    </form>
+
+  </div>
+
+
+  <div class="ibox-content">
+    &nbsp;
+    <button class="btn-primary btn btn-sm pull-right" style="margin-left: 5px;" (click)="submit()" [disabled]="!form.valid"><i
+        class="fa fa-save"></i>&nbsp;Salvar</button>
+    <button class="btn-warning btn btn-sm pull-right" (click)="voltar();"><i class="fa fa-arrow-left"></i>&nbsp;Voltar</button>
+  </div>
+
+</div>

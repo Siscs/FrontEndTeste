@@ -1,0 +1,24 @@
+<div class="middle-box text-center loginscreen animated fadeInDown">
+  <div>
+    <div>
+
+      <h1 class="logo-name">S+</h1>
+
+    </div>
+    <h3>Bem-vindo ao SOLP</h3>
+    <p>Sistema Operador Logistico Passarela
+    </p>
+
+    <form class="m-t" [formGroup]="form">
+      <div class="form-group">
+        <input type="text" class="form-control" placeholder="Usuário" formControlName="usuario">
+      </div>
+      <div class="form-group">
+        <input type="password" class="form-control" placeholder="Senha" formControlName="senha">
+      </div>
+      <button (click)="submit()" class="btn btn-primary block full-width m-b" [disabled]="!form.valid">Login</button>
+
+    </form>
+    <p class="m-t"> <small>by Passarela &copy; 2018</small> </p>
+  </div>
+</div>

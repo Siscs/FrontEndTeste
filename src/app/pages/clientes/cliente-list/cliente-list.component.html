@@ -1,0 +1,51 @@
+<div class="row">
+  <div class="col-lg-12">
+    <div class="ibox float-e-margins">
+      <div class="ibox-title">
+        <h5>{{title}}</h5>
+        <button id="idNovo" class="btn-success btn btn-sm pull-right" [routerLink]="['/cliente/']"><i class="fa fa-file-o"></i>&nbsp;Novo</button>
+   
+      </div>
+
+      <div class="ibox-content">
+
+        <div class="table-responsive">
+          <table class="footable table table-stripped toggle-arrow-tiny " data-page-size="9">
+            <thead>
+              <tr>
+                <th data-sort-ignore="true"></th>
+                <th>Razão Social</th>
+                <th>Nome Fantasia</th>
+                <th>CNPJ</th>
+                <th class="text-center" data-sort-ignore="true"></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let cliente of clientes">
+                <td>{{cliente.id}}</td>
+                <td>{{cliente.razaoSocial}}</td>
+                <td>{{cliente.nomeFantasia}}</td>
+                <td class="center">{{cliente.cnpj}}</td>
+                <td class="text-right">
+                  <div>
+                    <button class="btn-info btn btn-sm" [routerLink]="['/cliente/', cliente.id]"><i class="fa fa-file-text"></i>&nbsp;Visualizar</button>&nbsp;
+                    <button class="btn-warning  btn btn-sm" [routerLink]="['/cliente/', cliente.id]"><i class="fa fa-file-text-o"></i>&nbsp;Editar</button>&nbsp;
+                    <button class="btn-danger  btn btn-sm"><i class="fa fa-eraser"></i>&nbsp;Excluir</button>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+            <tfoot>
+              <tr>
+                <td colspan="6">
+                  <ul class="pagination pull-right"></ul>
+                </td>
+              </tr>
+            </tfoot>
+          </table>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>

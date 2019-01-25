@@ -1,0 +1,36 @@
+/* You can add global styles to this file, and also import other style files */
+
+#wrapper{
+    background-color: #2f4050;
+}
+
+.float-e-margins .btn{
+    margin-bottom:0px;
+}
+
+#idbtn{
+    margin-right:6px;
+}
+
+.ui-datatable table{
+    width:auto;
+}
+
+/* .ui-button .ui-fileupload-choose .ui-widget .ui-state-default .ui-corner-all .ui-button-text-icon-left{
+    margin-right:6px;
+    font-size: 0px !important;
+    background:red;
+} */
+
+.ui-button.ui-fileupload-choose.ui-widget.ui-state-default.ui-corner-all.ui-button-text-icon-left{
+    background-color:#1ab394 !important;
+       border: 3px solid#1ab394 !important;
+       color: white !important;
+       font-size: 11px !important;
+       font-weight: 100 !important;
+       font-family: "open sans", "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+   }
+
+   .ui-button-icon-only .ui-button-icon-left, .ui-button-text-icon-left .ui-button-icon-left, .ui-button-text-icon-right .ui-button-icon-right{
+    margin-top:-0.4em !important;
+   }

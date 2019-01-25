@@ -1,0 +1,12 @@
+<div class="dropdown profile-element" style="text-align:center"> <span>
+    <img alt="image" class="img-circle" [src]="'data:image/jpg;base64,'+imagem" />
+  </span>
+  <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+    <span class="clear"> <span class="block m-t-xs"> <strong class="font-bold">{{this.usuario}}</strong>
+      </span> <span class="text-muted text-xs block">{{this.email}} </span> </span> </a>
+  <ul class="dropdown-menu animated fadeInRight m-t-xs">
+    <li><a [routerLink]="['/perfil']">Perfil</a></li>
+    <li class="divider"></li>
+    <li><a href="login.html">Logout</a></li>
+  </ul>
+</div>
